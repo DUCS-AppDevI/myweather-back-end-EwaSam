@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 const router = express.Router();
 
-router.post('/auth', async (req, res) => {
+router.post('/', async (req, res) => {
   const username = req.body.email;
   const password = req.body.password;
   console.log(`userId: ${username}`);

@@ -3,7 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-const auth = require('./api/auth'); // Import the authentication route
+const auth = require('./api/auth'); // Import the authentication route'
+const weather = require('./api/curWeather')
 
 const app = express();
 const PORT = 3010;
@@ -14,7 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Use the authentication route
-app.use('/', auth);
+app.use('/auth', auth);
+app.use('/getWeather', weather);
 
 // Start the server
 app.listen(PORT, () => {
